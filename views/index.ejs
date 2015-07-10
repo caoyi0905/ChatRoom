@@ -40,7 +40,7 @@
         };
 
         $scope.setName = function setName() {
-          socket.emit('identify',<%= user%>);
+          socket.emit('identify','<%= user%>');
         };
       }
     </script>
@@ -49,9 +49,14 @@
     <div class="container" ng-controller="ChatController">
       <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
-          <div class="pull-right">
+          <div class="pull-left">
             <a class="brand">Let's Talk</a>
           </div>
+         <form name="form1" action="/room" method="post">
+                <div class="pull-right">
+                    <a href="javascript:document.form1.submit();" type="submit" class="brand" >登出</a>
+                </div>
+         </form>
         </div>
       </div>
       <div class="page-header">

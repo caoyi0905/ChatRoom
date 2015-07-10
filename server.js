@@ -9,6 +9,7 @@ var cookieParser = require('cookie-parser');
 var express = require('express');
 var flash = require('connect-flash');
 var session = require('express-session');
+var bodyParser = require('body-parser');
 //
 // ## SimpleServer `SimpleServer(obj)`
 //
@@ -26,6 +27,8 @@ var ioreq=require('./routes/io.js');
 router.set('views', path.join(__dirname, 'views'));
 router.set('view engine', 'ejs');
 router.use(flash());
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 router.use(cookieParser());
 router.use(express.static(path.join(__dirname, 'public')));
 router.use(session({
