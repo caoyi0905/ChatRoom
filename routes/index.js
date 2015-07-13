@@ -8,7 +8,7 @@ module.exports=function(app){
             res.redirect('/');
         }
         else{
-            res.render('index', {
+            res.render('room', {
                 title: '主页',
                 user: req.session.user,
                 success: req.flash('success').toString(),
@@ -28,7 +28,7 @@ module.exports=function(app){
             res.redirect('/room');
         }
         else{
-            res.render('index0', {
+            res.render('dollars', {
                 title: '主页',
                 user: null,
                 success: req.flash('success').toString(),
@@ -41,7 +41,7 @@ module.exports=function(app){
         req.session.user=req.body.name;
         req.flash('success', '登入成功!');
         res.redirect('/room');
-        res.render('index', {
+        res.render('room', {
             title: '主页',
             user: req.session.user,
             success: req.flash('success').toString(),
