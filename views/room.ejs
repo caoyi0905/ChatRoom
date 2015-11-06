@@ -24,9 +24,10 @@
         });
 
         socket.on('message', function (msg) {
-          $scope.messages.push(msg);
-          $scope.$apply();
-        });
+              $scope.messages.push(msg);
+              $scope.$apply();
+          });
+
 
         socket.on('roster', function (names) {
           $scope.roster = names;
@@ -38,6 +39,12 @@
           socket.emit('message', $scope.text);
           $scope.text = '';
         };
+
+          $scope.Clear = function Clear() {
+              console.log('Sending message:', $scope.text);
+              $scope.messages=[];
+              $scope.text = '';
+          };
 
         $scope.setName = function setName() {
           socket.emit('identify','<%= user%>');
@@ -93,6 +100,13 @@
               </div>
             </form>
           </div>
+            <div class="row controls">
+                <form ng-submit="Clear()">
+                    <div class="input-append span7">
+                        <input type="submit" class="span1 btn btn-primary" value="Clear">
+                    </div>
+                </form>
+            </div>
         </div>
       </div>
     </div>

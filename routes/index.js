@@ -28,7 +28,7 @@ module.exports=function(app){
             res.redirect('/room');
         }
         else{
-            res.render('dollars', {
+            res.render('Dollars', {
                 title: '主页',
                 user: null,
                 success: req.flash('success').toString(),
