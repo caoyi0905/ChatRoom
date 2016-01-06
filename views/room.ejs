@@ -44,6 +44,10 @@
             $scope.messages=[];
             $scope.text = '';
         };
+
+        $scope.setName = function setName() {
+            socket.emit('identify','<%= user%>');
+        };
       }
     </script>
   </head>

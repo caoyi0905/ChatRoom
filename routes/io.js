@@ -33,7 +33,7 @@ module.exports=function(io){
         });
 
         socket.on('identify', function (name) {
-            socket.set('name', String(name || 'Anonymous'), function (err) {
+            socket.set('name', String(name), function (err) {
                 updateRoster();
             });
         });
