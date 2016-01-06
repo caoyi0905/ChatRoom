@@ -40,14 +40,9 @@
           $scope.text = '';
         };
 
-          $scope.Clear = function Clear() {
-              console.log('Sending message:', $scope.text);
-              $scope.messages=[];
-              $scope.text = '';
-          };
-
-        $scope.setName = function setName() {
-          socket.emit('identify','<%= user%>');
+        $scope.Clear = function Clear() {
+            $scope.messages=[];
+            $scope.text = '';
         };
       }
     </script>
